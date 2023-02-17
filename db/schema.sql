@@ -3,46 +3,33 @@ DROP DATABASE IF EXISTS employee_tracker;
 CREATE DATABASE employee_tracker;
 
 -- Makes it so all of the following code will affect inventory_db --
-USE employee_tracker;
+ CREATE TABLE department(
 
--- Creates the table "produce" within inventory_db --
-CREATE TABLE department (
-  -- Creates a numeric column called "id" which will automatically increment its default value as we create new rows --
-  id INT NOT NULL,
-  -- Makes a string column called "name" which cannot contain null --
-  name VARCHAR(100) NOT NULL
-);
+  id: INT PRIMARY KEY,
 
+  name: VARCHAR(30),
+ )
+ CREATE TABLE role(
 
-CREATE TABLE roles (
-  -- Creates a numeric column called "id" which will automatically increment its default value as we create new rows --
-  -- the job title, role id, the department that role belongs to, and the salary for that role
-  id INT NOT NULL,
-  -- Makes a string column called "name" which cannot contain null --
-  job_title VARCHAR(100) NOT NULL,
+    id: INT PRIMARY KEY,
 
-  salary INT NOT NULL,
+    title: VARCHAR(30) ,
 
-  department VARCHAR(100) NOT NULL,
-   
+    salary: DECIMAL,
 
-);
+    department_id: INT to hold reference to department role belongs to
+ )
 
+CREATE TABLE employee(
 
-CREATE TABLE employees (
-  -- Creates a numeric column called "id" which will automatically increment its default value as we create new rows --
-  -- including employee ids, first names, last names, job titles, departments, salaries, and managers 
-  id INT NOT NULL,
-  -- Makes a string column called "name" which cannot contain null --
-  first_name VARCHAR(100) NOT NULL,
+    id: INT PRIMARY KEY,
 
-  last_name VARCHAR(100) NOT NULL,
+    first_name: VARCHAR(30) to hold employee first name,
 
-  department VARCHAR(100) NOT NULL,
+    last_name: VARCHAR(30) to hold employee last name,
 
-  salaries VARCHAR(100) NOT NULL,
+    role_id: INT to hold reference to employee role,
 
-  managers VARCHAR(100) NOT NULL,
-
-);
+    manager_id: INT to hold reference to another employee that is the manager of the current employee (`null` if the employee has no manager)
+    )
 
