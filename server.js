@@ -33,7 +33,7 @@ function init() {
             type: 'list',
             name: 'choices',
             message: 'What do you want to do?',
-            choices: ['View all departments', 'View all roles', 'view all employees','Add a department',' Add a role','add an employee','update an employee role','Exit']
+            choices: ['View all departments', 'View all roles', 'View all employees','Add a department',' Add a role','add an employee','update an employee role','Exit']
         }
     ])
     .then((answers) => {
@@ -41,12 +41,12 @@ function init() {
           case 'View all departments':
               department()
               break;
-          // case 'Intern':
-          //     addIntern()
-          //     break;
-          //     case 'Build team': 
-          //     buildTeam()
-          //         break;
+          case 'View all roles':
+              role()
+              break;
+              case 'View all employees': 
+              employee()
+                  break;
 
 
           default:
@@ -61,12 +61,34 @@ function init() {
 
 
 function department () {
-  db.query('SELECT * FROM department ', function (err, results) {
-    console.log(results);
+  db.query('SELECT name, id FROM department ', function (err, results) {
+    console.table(results);
 
     if (err) throw err
   });
   
+}
+
+
+function role()  {
+  db.query('SELECT title, salary, id, department_id FROM role ', function (err, results) {
+    console.table(results);
+
+    if (err) throw err
+  });
+
+}
+
+
+function employee() {
+
+  db.query('SELECT * FROM employee ', function (err, results) {
+    console.table(results);
+
+    if (err) throw err
+  });
+
+
 }
 
 init();
