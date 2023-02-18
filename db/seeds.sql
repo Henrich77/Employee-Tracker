@@ -1,34 +1,41 @@
 USE employee_tracker;
 
-INSERT INTO department (id, name)
+INSERT INTO department (name)
 VALUES 
-(1, "Technology"),
-(2, "Health Science")
-(3, "Business")
-(4, "Public Administration");
+( "Technology"),
+( "Health Science"),
+( "Business"),
+("customer service")
+( "Public Administration");
 
-
-
-INSERT INTO roles (id,department_id,salary,job_title)
+INSERT INTO role (department_id,salary,job_title)
 VALUES 
-(1,1, 85000,"developer" ),
-(2,2, "H")
-(3, "Business")
-(4, "Public Administration")
-(5, 1, 850000, "CTO");
+(1, 95000,"developer" ),
+(2,85000, "Nurse")
+(3,110000, "CEO")
+(4,72000, "Public Administration")
+(5, 1, 90000, "City Manager");
 
 
 
 
 
 
-INSERT INTO employees (id,first_name,last_name,role_id,manager_id)
+
+INSERT INTO employee (first_name,last_name,role_id,manager_id)
 VALUES
-(1, "Henrich","Tanis", 5, null),
-(2, "John","Doe", 1, 1)
-(1, "Michel","Thomas","0155776," "55345")
-(1, "Henrich","Tanis","056," "55345")
-(1, "Henrich","Tanis","0121502," "55345")
+( "John","Doe", 1, NULL),
+( "Michael","Thomas", 1, 1),
+( "Levy","Wallace",5, 1),
+( "Naruto","Uzimaki",3, 1),
+("Peter","Griffin",4,1)
+("Lisa","Simpson",2, 1);
+
+
+
+
+
+
 
 
     
